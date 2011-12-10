@@ -5,7 +5,8 @@ GUI = gtk
 LIBS=-r:Mono.Cecil
 CFLAGS=-O2 -g
 
-all: monocov.exe libmono-profiler-monocov.so symbols.exe
+#all: monocov.exe libmono-profiler-monocov.so symbols.exe
+all: libmono-profiler-monocov.so symbols.exe
 
 ifeq ($(GUI), gtk)
 GUI_SRCS = \
@@ -61,7 +62,7 @@ libmono-profiler-monocov.so: coverage.c
 install: all
 	mkdir -p $(prefix)/lib/monocov
 	mkdir -p $(prefix)/man/man1
-	cp Mono.Cecil.dll $(prefix)/lib/monocov
+	#cp Mono.Cecil.dll $(prefix)/lib/monocov
 	cp monocov.exe $(prefix)/lib/monocov
 	cp monocov $(prefix)/bin
 	cp libmono-profiler-monocov.so $(prefix)/lib/
